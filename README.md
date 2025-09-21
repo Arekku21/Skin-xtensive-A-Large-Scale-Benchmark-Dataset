@@ -1,4 +1,4 @@
-# Skin-xtensive-A-Large-Scale-Benchmark-Dataset
+# Skin-xtensive A Large Scale Benchmark Dataset
 
 Official repository for the paper:
 
@@ -18,12 +18,13 @@ We introduce our main contributions:
 This repository contains:
 - Benchmark model weights
 - CSV file of categorical factor values
+- Testing code script 
 
 ## Benchmark Model Weights
 
-We provide the benchmark models trained weights on the Skin-xtensive dataset. Each model is available for download.
+We provide the benchmark models trained weights on the Skin-xtensive dataset. Each model is available for download in the Hugginface model collection.
 
-[Skin-xtensive Model Collection](https://huggingface.co/collections/Arekku21/skin-xtensive-a-large-scale-benchmark-dataset-68cd8f2a903a72b3af320a60)
+[Skin-xtensive Model Collection](https://huggingface.co/collections/Arekku21/skin-xtensive-a-large-scale-benchmark-dataset-68cd8f2a903a72b3af320a60) <- Skin-xtensive Benchmark Model Collection
 
 
 | Model Type| Variant | M. Accuracy (%) | B. Accuracy (%) | Weights |
@@ -40,24 +41,9 @@ We provide the benchmark models trained weights on the Skin-xtensive dataset. Ea
 
 > **Note**: The reported accuracies and weights to download here are the best multiclass and binary results within our experiments. Please note *CLIP (ViT-L/14)* has no finetuned weight since it was just used directly for inference.
 
+## Skin-xtensive Dataset Categorical Factors
 
-### Requirements
-
-The downloadable model weights were taken from `Torch vision models`, `Timm` or `Huggingface`. This project was tested on `Python 3.9.21`. We have also included the `requirements.txt` for the python packages versions. 
- 
-Below is the preview of the dependencies (see [requirements.txt](requirements.txt) for the full list):
-
-```txt
-timm==1.0.7
-torch==2.0.1
-torchaudio==2.0.2
-torchvision==0.15.2
-transformers==4.47.1
-
-```
-## Skin-xtensive dataset categorical factors
-
-We have provided the CSV file with the categorical factor values we have used for the performance analysis. Below is a snippet from the CSV file (see [test_normal_split_with_fitz_sharpness_exposure.csv](test_normal_split_with_fitz_sharpness_exposure.csv) for the full list):
+We have provided the CSV file with the categorical factor values we have used for the performance analysis. Below is a snippet from the CSV file (see [test_normal_split_with_fitz_sharpness_exposure.csv](./dataset/test_normal_split_with_fitz_sharpness_exposure.csv) for the full list):
 
 | image_name| label | final_confirmed_diagnosis | fitzpatrick_label| exposure| sharpness|
 |------------|------------|------------|------------|------------|------------|
@@ -73,8 +59,51 @@ We have provided the CSV file with the categorical factor values we have used fo
  - `exposure` -  image exposure score (how bright)
  - `sharpness` - image sharpness score (how sharp)
 
+Skin-xtensive is a compound dataset combining other datasets with our own collection adding our categorical factors and analysis. We have added the links to the other datasets for easy access below.
 
- ## Citation
+**Dataset links**
+- **Fitzpatrick17k Dataset** — Groh et al., *“Evaluating Deep Neural Networks Trained on Clinical Images in Dermatology with the Fitzpatrick 17k Dataset”* (2021) 
+
+    [Dataset Link](https://github.com/mattgroh/fitzpatrick17k) 
+
+- **CO2Wounds-V2 Extended Chronic Wounds Dataset** — Sanchez et al., *“CO2Wounds-V2: Extended Chronic Wounds Dataset From Leprosy Patients”* (2024) 
+
+    [Dataset Link](https://data.mendeley.com/datasets/s2w7rjwz49/2) 
+
+- **AI-Leprosy Computer Vision Dataset** — Intelligent Systems, *Roboflow* (2025) 
+
+    [Dataset Link](https://universe.roboflow.com/intelligent-systems-1b35z/ai-leprosy-bbdnr)
+
+## Testing Code Script
+
+We have also provided the Python Testing codes for reproducibility. The scripts allow for the pretrained weights to be evaluated.
+
+[`evaluate.py`](./codes/evaluate.py) — Run evaluation python script for a given model checkpoint. 
+
+By default, we have also added the `models` folder to download the weights here and run the given script. The testing results will be printed on the console and figures will be saved in the `results` folder.
+
+**Example Usage**
+
+```bash
+# Evaluate SwinTransformer on the test set
+python evaluate.py --model_type "timm_swintrans" --path_saved_state_dict "./models/skinxtensive-swinbw7.pth" --save_model_path_folder "results" --test_csv "./dataset/test_normal_split_with_fitz_sharpness_exposure.csv"
+```
+
+### Requirements
+
+The downloadable model weights were taken from `Torch vision models`, `Timm` or `Huggingface`. This project was tested on `Python 3.9.21`. We have also included the `requirements.txt` for the python packages versions. 
+ 
+Below is the preview of the dependencies (see [requirements.txt](requirements.txt) for the full list):
+
+```txt
+timm==1.0.7
+torch==2.0.1
+torchaudio==2.0.2
+torchvision==0.15.2
+transformers==4.47.1
+```
+
+## Citation
 
  If you use this repository or the Skin-xtensive models in your research, please cite our work: 
  
@@ -82,7 +111,7 @@ We have provided the CSV file with the categorical factor values we have used fo
 
 ```bibtex
 @misc{skinxtensive2025,
-    author       = {Arekku21 and contributors},
+    author       = {Alec Vince and contributors},
     title        = {Skin-xtensive: A Large-Scale Benchmark Dataset for Deep Learning in Clinical Dermatology Towards Practical Deployment},
     year         = {2025},
     publisher    = {GitHub},
