@@ -1,0 +1,32 @@
+Model Type timm_swintrans
+Saved dict /j_swintrans_retraining_9_02/swin_base_patch4_window7_224__118e_0.001L_99.2465_70.7041_B8_model.pth
+
+device =  cuda
+
+Using Pre-Trained Model
+
+Number of correct predictions (multiclass): 2621 out of 3707
+
+Precision (Weighted): 0.7084
+Recall (Weighted): 0.7070
+F1 Score (Weighted): 0.7039
+AUC Score: 0.9780
+
+Number of correct predictions: 3692 out of 3707
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      3427
+           1       0.96      0.99      0.97       280
+
+    accuracy                           1.00      3707
+   macro avg       0.98      0.99      0.99      3707
+weighted avg       1.00      1.00      1.00      3707
+
+Precision (Binary): 0.9616724738675958
+Recall (Binary): 0.9857142857142858
+F1 Score (Binary): 0.9735449735449735
+
+{-1: 52, 1: 416, 2: 631, 3: 466, 4: 444, 5: 428, 6: 184}
+{'Very Dark': 5, 'Dark': 69, 'Moderate': 853, 'Light': 1534, 'Very Light': 160}
+{'Very Blurry': 1904, 'Blurry': 551, 'Slightly Blurry': 115, 'Moderate': 35, 'Sharp': 10, 'Very Sharp': 5, 'Excessively Sharp': 1}
+{'head': 1902, 'tail': 719}

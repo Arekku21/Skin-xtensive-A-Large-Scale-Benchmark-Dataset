@@ -1,0 +1,11 @@
+https://huggingface.co/collections/Arekku21/skin-xtensive-a-large-scale-benchmark-dataset-68cd8f2a903a72b3af320a60 <- Skin-xtensive Benchmark Model Collection
+
+[Download](https://huggingface.co/Arekku21/skinxtensive-resnet152) 
+[Download](https://huggingface.co/Arekku21/skinxtensive-densenet121)
+[Download](https://huggingface.co/Arekku21/skinxtensive-inceptionv4)
+[Download](https://huggingface.co/Arekku21/skinxtensive-efficientnetB5)
+[Download](https://huggingface.co/Arekku21/skinxtensive-vgg19)
+[Download](https://huggingface.co/Arekku21/skinxtensive-mobilenetv3)
+[Download](https://huggingface.co/Arekku21/skinxtensive-vitb16)
+[Download](https://huggingface.co/Arekku21/skinxtensive-swinbw7)
+[Link](https://huggingface.co/openai/clip-vit-large-patch14)
